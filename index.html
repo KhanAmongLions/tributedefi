@@ -43,21 +43,15 @@
                     <nav class="main-menu navbar-expand-md navbar-light">
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
-                                <li class="current dropdown"><a href="index.html">Home</a>
-                                    <ul>
-                                        <li><a href="index.html">Home Style 01</a></li>
-                                        <li><a href="index-2.html">Home Style 02</a></li>
-                                        <li><a href="index-3.html">Home Style 03</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#dashboard">Dashboard</a></li>
-                                <li  class="d_ropdown"><a href="#dapps">Dapps</a>
-                                    <!--ul>
-                                        <li><a href="team.html">Our Team</a></li>
-                                        <li><a href="testimonials.html">Testimonials</a></li>
-                                        <li><a href="faqs.html">FAQs</a></li>
-                                        <li><a href="not-found.html">404 Page</a></li>
-                                    </ul-->
+                                <li class="current dropdown"><a href="#" data-target="html" class="scroll-to-target">Home</a></li>
+                                <li><a data-target="#stats" class="scroll-to-target">Stats</a></li>
+                                <li><a data-target="#dashboard" class="scroll-to-target">Dashboard</a></li>
+                                <li  class="dropdown"><a data-target="#dapps" class="scroll-to-target">Dapps</a>
+                                      <ul>
+                                          <li><a href="#dapp1">Dapp 01</a></li>
+                                          <li><a href="#dapp2">Dapp 02</a></li>
+                                          <li><a href="#dapp3">Dapp 03</a></li>
+                                      </ul>
                                 </li>
                                 <li  class="d_ropdown"><a href="#swap" target="_blank">Exchange</a>
                                     <!--ul>
@@ -73,13 +67,16 @@
                                 <li><a href="#whitepaper">Whitepaper</a></li>
                                 <li><a href="#tokenomics">Tokenomics</a></li>
                                 <li><a href="#tokenomics">Media</a></li>
-                                <li  class="d_ropdown"><a href="#faq">FAQ</a>
+                                <li  class="d_ropdown"><a data-target="#faq" class="scroll-to-target">FAQ</a>
                                     <!--ul>
                                         <li><a href="portfolio.html">Portfolio</a></li>
                                         <li><a href="portfolio-single.html">Portfolio Single 01</a></li>
                                         <li><a href="portfolio-single-2.html">Portfolio Single 02</a></li>
                                     </ul-->
                                 </li>
+                              <li>
+
+                              </li>
                                 <!--li  class="dropdown"><a href="blog-grid.html">Blog</a>
                                     <ul>
                                         <li><a href="blog.html">Blog Sidebar</a></li>
@@ -203,7 +200,7 @@
                         <div class="content">
                             <div class="inner">
                                 <div class="sub-title">welcome to Tribute</div>
-        						<h1>Deflationary Defi <br>That Matters</h1>
+        						<h1>Deflationary&nbsp;Defi <br>That Matters</h1>
                                 <div class="link-box">
                                     <a class="theme-btn btn-style-one" href="#faq">
                                         <i class="btn-curve"></i>
@@ -309,7 +306,7 @@
         </div>
     </section>
     <!-- SUPPLY SECTION -->
-    <section class="fluid-section">
+    <section id="stats" class="fluid-section">
         <div class="outer-container">
             <div class="row clearfix">
                 <div class="column col-lg-6 col-md-12 col-sm-12">
@@ -343,6 +340,33 @@
             </div>
         </div>
     </section>
+    <!-- INFO SECTION -->
+    <section class="fluid-section">
+        <div class="outer-container">
+            <div class="row clearfix">
+                <div class="column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner">
+
+                        <div class="content-box">
+                            <h3>RECENT REWARDS</h3>
+                            <ul id="recentrewards" style="font-size: 30px;">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner">
+
+                        <div class="content-box">
+                            <h3>YOUR REWARDS</h3>
+                            <ul id="yourrecentrewards" style="font-size: 30px;">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- dashboard Section -->
     <section class="contact-section" id="dashboard">
@@ -351,48 +375,41 @@
                     <div class="sec-title">
                         <h2>USER DASHBOARD<span class="dot">.</span></h2>
                     </div>
+                    <button class="theme-btn btn-style-one">
+                        <i class="btn-curve"></i>
+                        <span class="btn-title" id="approveButton">APROVE TRIBUTE</span>
+                    </button>
                     <div class="default-form">
-                        <form method="post" action="sendemail.php" id="contact-form" novalidate="novalidate">
+                        <form id="buy-form" novalidate="novalidate">
                             <div class="row clearfix">
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
-                                      <span id="tokenBalance">?</span>
-                                        <input type="text" name="username" value="" placeholder="Your Name" required="">
+                                        <input type="number" id="buyamount" name="buyamount" value="" placeholder="Enter an amount" required="">
                                     </div>
                                 </div>
                                 <div class="form-group col-lg-6 col-md-6 col-sm-12">
                                     <div class="field-inner">
-                                          Top 50: <span id="top50">?</span>
-                                        <input type="email" name="email" value="" placeholder="Email Address" required="">
+                                      <button class="theme-btn btn-style-one" id="buyButton">
+                                          <i class="btn-curve"></i>
+                                          <span class="btn-title" >BUY</span>
+                                      </button>
                                     </div>
                                 </div>
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <div class="field-inner">
-                                        <input type="text" name="phone" value="" placeholder="Phone Number" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                    <div class="field-inner">
-                                        <input type="text" name="subject" value="" placeholder="Subject" required="">
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <div class="field-inner">
-                                        <textarea name="message" placeholder="Write Message" required=""></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                                    <button class="theme-btn btn-style-one">
-                                        <i class="btn-curve"></i>
-                                        <span class="btn-title">Send message</span>
-                                    </button>
-                                </div>
+
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </section>
+<!-- NOTES
+<button id="buyButton">Buy</button>
+<input type="number" id="buyamount"/>
+<br>
+<button id="sellButton">Sell</button>
+<input type="number" id="sellamount"/>
+<br>
+
 
     <!--About Section-->
     <section class="about-section">
@@ -1159,13 +1176,14 @@
                 <div class="row clearfix">
 
                     <!--Column-->
-                    <div class="column col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="column col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="footer-widget logo-widget">
                             <div class="widget-content">
                                 <div class="logo">
                                     <a href="index.html"><img src="images/footer-logo.png" alt="" /></a>
                                 </div>
-                                <div class="text">Welcome to our web design agency. Lorem ipsum simply free text dolor sited amet cons cing elit.</div>
+                                <div class="text">REFER AND EARN TRIBUTE! Simply share this link:
+                                  <br> <span id="myreflink" onclick="copyRef()"></span></div>
                                 <ul class="social-links clearfix">
                                     <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                                     <li><a href="#"><span class="fab fa-twitter"></span></a></li>
@@ -1177,7 +1195,7 @@
                     </div>
 
                     <!--Column-->
-                    <div class="column col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <!--div class="column col-xl-3 col-lg-6 col-md-6 col-sm-12">
                         <div class="footer-widget links-widget">
                             <div class="widget-content">
                                 <h6>Explore</h6>
@@ -1202,64 +1220,21 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div-->
 
                     <!--Column-->
-                    <div class="column col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <!--div class="column col-xl-12 col-lg-12 col-md-12 col-sm-12">
                         <div class="footer-widget info-widget">
                             <div class="widget-content">
-                                <h6>Orginal Dapp Form</h6>
-                                <div>
-                                  <br>
-                                  Your Tokens: <span id="tokenBalance">?</span>
-                                  <br>
-                                  Top 50: <span id="top50">?</span>
-                                  <br>
-                                  Total Shares: <span id="totalShares">?</span>
-                                  <br>
-                                  Your Shares: <span id="yourShares">?</span>
-                                  <br>
-                                  <button id="buyButton">Buy</button>
-                                  <input type="number" id="buyamount"/>
-                                  <br>
-                                  <button id="sellButton">Sell</button>
-                                  <input type="number" id="sellamount"/>
-                                  <br>
-                                  <!--
-                                  <button id="donateButton">Donate</button>
-                                  <input type="number" id="donateamount"/>
-                                -->
-                                  Your Dividends: <span id="yourdivs">?</span>
-                                  <button id="withdrawDivs">Withdraw Dividends</button>
-                                  <button id="reinvestDivs">Reinvest Dividends</button>
-                                  <br>
-                                  Total Tokens: <span id="total">?</span>
-                                  <br>
-                                  Total Tokens Burned: <span id="totalburned">?</span>
-                                  <br>
-                                  Swap Burn: <button id="swapButton">Swap</button>
-                                  <br>
-                                  Recent Rewards:
-                                  <ul id="recentrewards">
-                                  </ul>
-                                  Your Recent Rewards:
-                                  <ul id="yourrecentrewards">
-                                  </ul>
-                                  <br>
-                                  <button id="approveButton">Approve</button>
-                                  <button id="donateButton">Donate</button>
-                                  <input type="number" id="donateamount"/>
-                                  <br>
-                                  Your Reflink: <span id="myreflink" onclick="copyRef()"></span>
-                                </div>
+
 
 
                             </div>
                         </div>
-                    </div>
+                    </div -->
 
                     <!--Column-->
-                    <div class="column col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                    <div class="column col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="footer-widget newsletter-widget">
                             <div class="widget-content">
                                 <h6>Newsletter</h6>
@@ -1285,7 +1260,48 @@
         <div class="footer-bottom">
             <div class="auto-container">
                 <div class="inner clearfix">
-                    <div class="copyright">&copy; copyright 2020 by Layerdrops.com</div>
+                    <div class="copyright">&copy; copyright 2020</div>
+
+                    <h6>Orginal Dapp Form</h6>
+                    <div>
+                      <br>
+                      Your Tokens: <span id="tokenBalance">?</span>
+                      <br>
+                      Top 50: <span id="top50">?</span>
+                      <br>
+                      Total Shares: <span id="totalShares">?</span>
+                      <br>
+                      Your Shares: <span id="yourShares">?</span>
+                      <br>
+                      <!--button id="buyButton">Buy</button-->
+                      <input type="number" id="buyamount"/>
+                      <br>
+                      <button id="sellButton">Sell</button>
+                      <input type="number" id="sellamount"/>
+                      <br>
+
+                      <button id="donateButton">Donate</button>
+                      <input type="number" id="donateamount"/>
+
+                      Your Dividends: <span id="yourdivs">?</span>
+                      <button id="withdrawDivs">Withdraw Dividends</button>
+                      <button id="reinvestDivs">Reinvest Dividends</button>
+                      <br>
+                      Total Tokens: <span id="total">?</span>
+                      <br>
+                      Total Tokens Burned: <span id="totalburned">?</span>
+                      <br>
+                      Swap Burn: <button id="swapButton">Swap</button>
+                      <br>
+
+                      <br>
+
+                      <button id="donateButton">Donate</button>
+                      <input type="number" id="donateamount"/>
+                      <br>
+                      Your Reflink: <span id="myreflink" onclick="copyRef()"></span>
+                    </div>
+
                 </div>
             </div>
         </div>
