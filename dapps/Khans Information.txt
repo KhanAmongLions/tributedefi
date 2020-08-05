@@ -1,0 +1,124 @@
+    <!-- DAPPS SECTION -->
+    <section class="we-work-section" id="dapps">
+        <div class="auto-container">
+            <div class="sec-title centered">
+                <h2>INTERACTIVE DAPP<span class="dot"/span><br>ECONOMY<span class="dot"/span></h2>
+            </div>
+            <!--Work Tabs-->
+            <div class="work-tabs tabs-box">
+
+                <!--Tab Btns-->
+                <ul class="tab-btns tab-buttons clearfix">
+                    <li data-tab="#tab-1" class="tab-btn"><span>conTRIBUTE</span></li>
+                    <li data-tab="#tab-2" class="tab-btn"><span>ENFORCED TRIBUTE</span></li>
+                    <li data-tab="#tab-3" class="tab-btn active-btn"><span>TRIBUTE TO LIQUIDITY</span></li>
+                </ul>
+
+                <!--Tabs Container-->
+                <div class="tabs-content">
+
+                    <!--Tab-->
+                    <div class="tab" id="tab-1" style="display: none;">
+                        <div class="row clearfix">
+                            <div class="image-col col-lg-5 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="image">
+                                        <img src="https://images.unsplash.com/photo-1559366682-70c39fbc2a42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-col col-lg-7 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="text">
+                                            <p>There are many variations of staking dapps in the crypto community, and after participating in a wide variety of them we have come up with the optimal structure for the offical TRIBUTE staking dapp.</p>
+                                            <p class="theme_color">This is a dapp that was designed to reward TRIBUTE holders and conTRIBUTE players in a truly synergistic method. A conventional hourglass contract was used as the basis for which this staking dapp was developed. However, the hourglass code was modified in its structure to make it non-zero-sum. This is a new idea, as most hourglass dapps are by their nature zero-sum.</p>
+                                            <ul>
+                                                <li>5% ENTRY FEE.</li>
+                                                <li>15% EXIT FEE.</li>
+                                                <li>Stable non-fluctuating price.</li>
+                                                <li>10% of the initial TRBT token supply (50,000 TRBT) has been withheld from circulation and assigned as exclusive rewards for conTRIBUTE holders.</li>
+                                                <li>The 50,000 TRBT will be periodically injected into conTRIBUTE as direct dividends to all the players.</li>
+                                                <li>The longer you hold your TRBT in this dapp, the more dividends you will be guaranteed to make. This dapp is aimed at players who prefer a constant stream of passive income.</li>
+                                                <li>All transfers into and out of the dapp will not be subject to the 5% burn or the 5% reward drop, meaning there will be no transfer fee as is typically associated with all transfers of TRBT on the blockchain.</li>
+                                                <li>The dapp contains no developer fee. All funds are 100% distributed to players.</li>
+                                                <li>Your TRBT sent to this contract is not eligible for the 5% reward drops, because it will no longer be in your wallet and you will therefore not be considered a top 50 holder while staking.</li>
+                                                <li>You recieve 20% of the entry fee as direct dividends from anyone who uses your custom referral link.</li>
+                                                <li>Playing the game has a positive effect on token price by locking liquidity.</li>
+                                                <li>The dapp is designed to punish sellers as they exit their positions, but holders will be rewarded by accumulating substantial dividends from any exits.</li>
+                                                <li>Etherscan Smart Contract Link</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Tab-->
+                    <div class="tab" id="tab-2" style="display: none;">
+                        <div class="row clearfix">
+                            <div class="image-col col-lg-5 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="image">
+                                        <img src="https://images.unsplash.com/photo-1494635437270-3b11b226dd80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=470&h=384&q=80" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-col col-lg-7 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="text">
+                                            <p>This is a new concept dapp that has never been done before, designed in a way to enforce burns and rewards of TRBT on a daily basis. A smart contract was built which can be seeded with TRBT tokens only. The tokens within this contract can never be withdrawn or sold.</p>
+                                            <p class="theme_color">The Enforced TRIBUTE smart contract will be seeded from its genesis with 50,000 TRBT tokens, equating to 10% of the total supply.</p>
+                                            <ul>
+                                                <li>Click the button to trigger a Burn'n'Reward function.</li>
+                                                <li>The Burn'n'Reward trigger can only be called once every 12 hours.</li>
+                                                <li>The function will carry out a transfer of 10,000 TRBT between its in-built contracts.</li>
+                                                <li>This triggers the autonomous burning of 500 TRBT and a reward drop of 500 TRBT to a random wallet in the top 50 holders.</li>
+                                                <li>This see-saw function will continue forever until the Enforced TRIBUTE smart contract runs out of TRBT completely, meaning the initial seed of 50,000 TRBT will be completely used for token burns and rewards.</li>
+                                                <li>The dapp will continue to function until it has depleted it's TRBT seed, meaning a total of 25,000 TRBT will have been burnt and 25,000 TRBT will have been distributed to holders as reward drops.</li>
+                                                <li>Enforced TRIBUTE is a powerful driving force made to push up the price of TRBT daily by making the supply even more scarce.</li>
+                                                <li>Etherscan Smart Contract Link</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Tab-->
+                    <div class="tab active-tab" id="tab-3" style="display: block;">
+                        <div class="row clearfix">
+                            <div class="image-col col-lg-5 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="image">
+                                        <img src="https://images.unsplash.com/photo-1577397010171-71f47282eb43?ixlib=rb-1.2.1&auto=format&fit=crop&w=470&h=384&q=80" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-col col-lg-7 col-md-6 col-sm-12">
+                                <div class="inner">
+                                    <div class="content">
+                                        <div class="text">
+                                            <p>There are many variations of passages of lorem ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
+                                            <p class="theme_color">If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. </p>
+                                            <ul>
+                                                <li>Self-contained, state-of-the-art time clock</li>
+                                                <li>Scalability of up to 500 employees per time clock</li>
+                                                <li>The ability to connect up to 32 time clocks</li>
+                                                <li>Employee self-enrollment</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>

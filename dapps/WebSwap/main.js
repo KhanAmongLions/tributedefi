@@ -11,7 +11,7 @@ function main(){
     web3.eth.getBlockNumber().then(function(bnum){
       tokenContract.events.Choosen({},transferPayoutCallback)
     })
-    //controlLoopFaster()
+    controlLoopFaster()
 }
 function controlLoopFaster(){
     //put faster update stuff here
@@ -20,13 +20,7 @@ function controlLoopFaster(){
 }
 function refreshData(){
   console.log('refreshdata called')
-  document.getElementById('buyButton').onclick=buy2;//LOCKStakeAmount
-  document.getElementById('sellButton').onclick=sell2;
-  document.getElementById('withdrawDivs').onclick=withdraw2;
-  document.getElementById('reinvestDivs').onclick=reinvest2;
   document.getElementById('swapButton').onclick=swap2;
-  document.getElementById('approveButton').onclick=approve2;
-  document.getElementById('donateButton').onclick=donate2;
   //document.getElementById('donateButton').onclick=donate2;
 
   web3.eth.getAccounts(function (err, accounts) {
@@ -40,23 +34,12 @@ function refreshData(){
     })
     tokenContract.methods.totalBurned().call().then(function(tburned){
       document.getElementById('totalburned').textContent=weiToDisplay(tburned)
-      document.getElementById('totalburned2').textContent=weiToDisplay(tburned)
     })
     tokenContract.methods.totalSupply().call().then(function(tokenTotal){
       document.getElementById('total').textContent=weiToDisplay(tokenTotal)
-      document.getElementById('total2').textContent=weiToDisplay(tokenTotal)
-    })
-    svContract.methods.totalSupply().call().then(function(bal){
-      document.getElementById('totalShares').textContent=weiToDisplay(bal)
-    })
-    svContract.methods.balanceOf(addr).call().then(function(bal){
-      document.getElementById('yourShares').textContent=weiToDisplay(bal)
-    })
-    svContract.methods.myDividends(true).call({from:addr}).then(function(bal){
-      document.getElementById('yourdivs').textContent=weiToDisplay(bal)
     })
     processRecentEvents()
-    updateReflink()
+    //updateReflink()
   })
 }
 function addToList(listid,content){
@@ -118,10 +101,10 @@ function enableButton(buttonId){
   document.getElementById(buttonId).disabled=false
 }
 function setTimerFromSeconds(seconds){
-  //console.log('secondssettimer ',seconds)
-  if(seconds<0){
-    seconds=86400
-  }
+//  console.log('secondssettimer ',seconds)
+//  if(seconds<0){
+//    seconds=86400
+//  }
   var days        = 0//Math.floor(seconds/24/60/60);
   var hoursLeft   = Math.floor((seconds))// - (days*86400));
   var hours       = Math.floor(hoursLeft/3600);

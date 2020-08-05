@@ -340,7 +340,7 @@
             </div>
         </div>
     </section>
-    <!-- INFO SECTION -->
+    <!-- INFO SECTION
     <section class="fluid-section">
         <div class="outer-container">
             <div class="row clearfix">
@@ -740,9 +740,9 @@
 
                 <!--Tab Btns-->
                 <ul class="tab-btns tab-buttons clearfix">
-                    <li data-tab="#tab-1" class="tab-btn"><span>conTRIBUTE</span></li>
-                    <li data-tab="#tab-2" class="tab-btn"><span>ENFORCED TRIBUTE</span></li>
-                    <li data-tab="#tab-3" class="tab-btn active-btn"><span>TRIBUTE TO LIQUIDITY</span></li>
+                    <li data-tab="#tab-1" class="tab-btn"><span>conTRIBUTE DAPP</span></li>
+                    <li data-tab="#tab-2" class="tab-btn"><span>ENFORCED TRIBUTE DAPP</span></li>
+                    <li data-tab="#tab-3" class="tab-btn active-btn"><span>TRIBUTE TO LIQUIDITY DAPP</span></li>
                 </ul>
 
                 <!--Tabs Container-->
@@ -758,7 +758,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-col col-lg-7 col-md-6 col-sm-12">
+                            <div class="text-col col-lg-5 col-md-6 col-sm-12">
+                                  <div class="inner">
+                                    <div class="content">
+**CONTRIBUTE DAPP***
+                                    </div>
+                                  </div>
+                            </div>
+                          </div>
+                          <div class="row clearfix">
+                            <div class="text-col col-lg-12 col-md-12 col-sm-12">
                                 <div class="inner">
                                     <div class="content">
                                         <div class="text">
@@ -793,13 +802,73 @@
                                 <div class="inner">
                                     <div class="image">
                                         <img src="https://images.unsplash.com/photo-1494635437270-3b11b226dd80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=470&h=384&q=80" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="text-col col-lg-6 col-md-6 col-sm-12">
+                                    <div class="inner">
+                                      <div class="content"> <!-- **ENFORCED DAPP*** -->
+                                          <button class="theme-btn btn-style-one" id="swapButton" style="width: 100%;">
+                                              <i class="btn-curve"></i>
+                                              <span class="btn-title" style="font-size: 55px;">SWAP BURN</span>
+                                          </button>
+                                          <h4>BALANCE: <span id="tokenBalance">*Please Connect to Wallet</span> TBRT</h4>
+                                          <h4>Top 50: <span id="top50">*Please Connect to Wallet</span></h4>
+                                          <h4>Total Tokens: <span id="total2">*Please Connect to Wallet</span></h4>
+                                          <h4>Total Tokens Burned: <span id="totalburned2">*Please Connect to Wallet</span></h4>
+                                          <h4>Time to next swap:
+                                            <span id="SwapTimer">
+                                                <span id="hours">0</span>:
+                                                <span id="minutes">0</span>:
+                                                <span id="seconds">0</span>
+                                            </span>
+                                          </h4>
+
+
+                                          <script>
+                                            function transferPayoutCallback(notsure,values){
+                                              var address=values.returnValues._addr
+                                              var tokens=weiToDisplay(values.returnValues._value)
+                                              console.log('tpc ',address,tokens)
+                                              /*
+                                                Add event processing code here
+                                              */
+                                            }
+                                          </script>
+                                      </div>
                                     </div>
-                                </div>
+                              </div>
                             </div>
-                            <div class="text-col col-lg-7 col-md-6 col-sm-12">
+                              <section class="fluid-section">
+                                    <div class="outer-container">
+                                        <div class="row clearfix">
+                                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                                <div class="inner">
+
+                                                    <div class="content-box">
+                                                        <h3>RECENT REWARDS</h3>
+                                                        <ul id="recentrewards" style="font-size: 30px;"><li>*Please Connect to Wallet</li></ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="column col-lg-6 col-md-12 col-sm-12">
+                                                <div class="inner">
+
+                                                    <div class="content-box">
+                                                        <h3>YOUR REWARDS</h3>
+                                                        <ul id="yourrecentrewards" style="font-size: 30px;">*Please Connect to Wallet</ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            <div class="row clearfix">
+                              <div class="text-col col-lg-12 col-md-12 col-sm-12">
                                 <div class="inner">
                                     <div class="content">
                                         <div class="text">
+                                          <h1>Enforce Dapp Information</h1>
                                             <p>This is a new concept dapp that has never been done before, designed in a way to enforce burns and rewards of TRBT on a daily basis. A smart contract was built which can be seeded with TRBT tokens only. The tokens within this contract can never be withdrawn or sold.</p>
                                             <p class="theme_color">The Enforced TRIBUTE smart contract will be seeded from its genesis with 50,000 TRBT tokens, equating to 10% of the total supply.</p>
                                             <ul>
@@ -1157,7 +1226,7 @@
                 <div class="sec-title centered">
                     <h2>OUR PARTNERS<span class="dot">.</span></h2>
                 </div>
-    
+
                 <div class="row clearfix">
                     <!--News Block-->
                     <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -1360,7 +1429,6 @@
                       <button id="withdrawDivs">Withdraw Dividends</button>
                       <button id="reinvestDivs">Reinvest Dividends</button>
                       <br>
-                      Total Tokens: <span id="total">?</span>
                       <br>
                       Total Tokens Burned: <span id="totalburned">?</span>
                       <br>

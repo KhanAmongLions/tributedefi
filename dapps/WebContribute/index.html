@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <script src="web3.min.js"></script>
+  <script src="jquery.min.js"></script>
+</head>
+<body>
+  <div>
+    <br>
+    Your Tokens: <span id="tokenBalance">?</span>
+    <br>
+    Total Shares: <span id="totalShares">?</span>
+    <br>
+    Your Shares: <span id="yourShares">?</span>
+    <br>
+    <button id="buyButton">Buy</button>
+    <input type="number" id="buyamount"/>
+    <br>
+    <button id="sellButton">Sell</button>
+    <input type="number" id="sellamount"/>
+    <br>
+    <!--
+    <button id="donateButton">Donate</button>
+    <input type="number" id="donateamount"/>
+  -->
+    Your Dividends: <span id="yourdivs">?</span>
+    <button id="withdrawDivs">Withdraw Dividends</button>
+    <button id="reinvestDivs">Reinvest Dividends</button>
+
+    <br>
+    <button id="approveButton">Approve</button>
+    <button id="donateButton">Donate</button>
+    <input type="number" id="donateamount"/>
+    <br>
+    Your Reflink: <span id="myreflink" onclick="copyRef()"></span>
+  </div>
+  <script>
+    function transferPayoutCallback(notsure,values){
+      var address=values.returnValues._addr
+      var tokens=weiToDisplay(values.returnValues._value)
+      console.log('tpc ',address,tokens)
+      /*
+        Add event processing code here
+      */
+    }
+  </script>
+  <script src="abi.js?v=0.1"></script>
+  <script src="interface.js?v=0.1"></script>
+  <script src="main.js?v=0.1"></script>
+</body>
+</html>

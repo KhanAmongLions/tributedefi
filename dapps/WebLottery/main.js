@@ -21,12 +21,6 @@ function controlLoopFaster(){
 function refreshData(){
   console.log('refreshdata called')
   document.getElementById('buyButton').onclick=buy2;//LOCKStakeAmount
-  document.getElementById('sellButton').onclick=sell2;
-  document.getElementById('withdrawDivs').onclick=withdraw2;
-  document.getElementById('reinvestDivs').onclick=reinvest2;
-  document.getElementById('swapButton').onclick=swap2;
-  document.getElementById('approveButton').onclick=approve2;
-  document.getElementById('donateButton').onclick=donate2;
   //document.getElementById('donateButton').onclick=donate2;
 
   web3.eth.getAccounts(function (err, accounts) {
@@ -35,28 +29,9 @@ function refreshData(){
     tokenContract.methods.balanceOf(addr).call().then(function(bal){
       document.getElementById('tokenBalance').textContent=weiToDisplay(bal)
     })
-    tokenContract.methods.moundIndex(addr).call().then(function(mindex){
-      document.getElementById('top50').textContent=Number(mindex)>0
-    })
-    tokenContract.methods.totalBurned().call().then(function(tburned){
-      document.getElementById('totalburned').textContent=weiToDisplay(tburned)
-      document.getElementById('totalburned2').textContent=weiToDisplay(tburned)
-    })
-    tokenContract.methods.totalSupply().call().then(function(tokenTotal){
-      document.getElementById('total').textContent=weiToDisplay(tokenTotal)
-      document.getElementById('total2').textContent=weiToDisplay(tokenTotal)
-    })
-    svContract.methods.totalSupply().call().then(function(bal){
-      document.getElementById('totalShares').textContent=weiToDisplay(bal)
-    })
-    svContract.methods.balanceOf(addr).call().then(function(bal){
-      document.getElementById('yourShares').textContent=weiToDisplay(bal)
-    })
-    svContract.methods.myDividends(true).call({from:addr}).then(function(bal){
-      document.getElementById('yourdivs').textContent=weiToDisplay(bal)
-    })
+
     processRecentEvents()
-    updateReflink()
+    //updateReflink()
   })
 }
 function addToList(listid,content){
@@ -150,75 +125,12 @@ function buy2(){
   if(Number(tospend)>0){
       web3.eth.getAccounts(function (err, accounts) {
         address=accounts[0]
-        refaddress=getRefToUse()//"0x9bEDbd434cEAda2ce139335f21905f8fF7894C5D"//"0xdd9919d12Db76ac8609078114c41098E44B732FD"
-        console.log('buy ',svContractAddress,web3.utils.toWei(tospend,'ether'),address,refaddress)
-        tokenContract.methods.approveAndCall(svContractAddress,web3.utils.toWei(tospend,'ether'),refaddress).send({from:address}).then(function(err,result){
+        console.log('buy ',lotteryAddress,web3.utils.toWei(tospend,'ether'),address,refaddress)
+        tokenContract.methods.approveAndCall(lotteryAddress,web3.utils.toWei(tospend,'ether'),'0x0000000000000000000000000000000000000000').send({from:address}).then(function(err,result){
           if(DEBUG){console.log('buy')}
         })
       })
   }
-}
-//svContract
-function sell2(){
-  if(DEBUG){console.log('sell2')}
-  let tospend=document.getElementById('sellamount').value
-  if(Number(tospend)>0){
-      web3.eth.getAccounts(function (err, accounts) {
-        address=accounts[0]
-        svContract.methods.sell(web3.utils.toWei(tospend,'ether')).send({from:address}).then(function(err,result){
-          if(DEBUG){console.log('sell')}
-        })
-      })
-  }
-}
-function donate2(){
-  if(DEBUG){console.log('sell2')}
-  let tospend=document.getElementById('donateamount').value
-  if(Number(tospend)>0){
-      web3.eth.getAccounts(function (err, accounts) {
-        address=accounts[0]
-        svContract.methods.donateTokens(web3.utils.toWei(tospend,'ether')).send({from:address}).then(function(err,result){
-          if(DEBUG){console.log('sell')}
-        })
-      })
-  }
-}
-function withdraw2(){
-  if(DEBUG){console.log('withdraw')}
-  web3.eth.getAccounts(function (err, accounts) {
-    address=accounts[0]
-    svContract.methods.withdraw().send({from:address}).then(function(err,result){
-      if(DEBUG){console.log('withdraw')}
-    })
-  })
-}
-function reinvest2(){
-  if(DEBUG){console.log('reinvest')}
-  web3.eth.getAccounts(function (err, accounts) {
-    address=accounts[0]
-    svContract.methods.reinvest().send({from:address}).then(function(err,result){
-      if(DEBUG){console.log('reinvest')}
-    })
-  })
-}
-function swap2(){
-  if(DEBUG){console.log('reinvest')}
-  web3.eth.getAccounts(function (err, accounts) {
-    address=accounts[0]
-    swapContract.methods.swap().send({from:address}).then(function(err,result){
-      if(DEBUG){console.log('reinvest')}
-    })
-  })
-}
-function approve2(){
-  if(DEBUG){console.log('approve2')}
-  web3.eth.getAccounts(function (err, accounts) {
-    address=accounts[0]
-    //document.getElementById('approvewaitingtransaction').style.display="inline-block";
-    tokenContract.methods.approve(svContractAddress,web3.utils.toWei("100000000",'ether')).send({from:address}).then(function(err,result){
-      if(DEBUG){console.log('approve')}
-    })
-  })
 }
 function getQueryVariable(variable)
 {

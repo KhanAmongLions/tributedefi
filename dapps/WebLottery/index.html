@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <script src="web3.min.js"></script>
+  <script src="jquery.min.js"></script>
+</head>
+<body>
+  <div>
+    <br>
+    Spend Tribute to win Tribute Uniswap liquidity tokens!
+    <br>
+    Your Tokens: <span id="tokenBalance">?</span>
+    <br>
+    <button id="buyButton">Enter Lottery</button>
+    <input type="number" id="buyamount"/>
+    <br>
+    Your tokens entered this round:
+    <span id="tokensentered">?</span>
+    <br>
+    Total tokens entered this round:
+    <span id="tokensenteredtotal">?</span>
+    <br>
+    Current chance to win:
+    <span id="chancetowin">?</span>%
+    <br>
+    Your Liquidity Tokens: <span id="liqTokenBalance">?</span>
+    <br>
+  </div>
+  <script>
+    function transferPayoutCallback(notsure,values){
+      var address=values.returnValues._addr
+      var tokens=weiToDisplay(values.returnValues._value)
+      console.log('tpc ',address,tokens)
+      /*
+        Add event processing code here
+      */
+    }
+  </script>
+  <script src="abi.js?v=0.1"></script>
+  <script src="interface.js?v=0.1"></script>
+  <script src="main.js?v=0.1"></script>
+</body>
+</html>

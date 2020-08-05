@@ -24,7 +24,6 @@ function refreshData(){
   document.getElementById('sellButton').onclick=sell2;
   document.getElementById('withdrawDivs').onclick=withdraw2;
   document.getElementById('reinvestDivs').onclick=reinvest2;
-  document.getElementById('swapButton').onclick=swap2;
   document.getElementById('approveButton').onclick=approve2;
   document.getElementById('donateButton').onclick=donate2;
   //document.getElementById('donateButton').onclick=donate2;
@@ -35,17 +34,7 @@ function refreshData(){
     tokenContract.methods.balanceOf(addr).call().then(function(bal){
       document.getElementById('tokenBalance').textContent=weiToDisplay(bal)
     })
-    tokenContract.methods.moundIndex(addr).call().then(function(mindex){
-      document.getElementById('top50').textContent=Number(mindex)>0
-    })
-    tokenContract.methods.totalBurned().call().then(function(tburned){
-      document.getElementById('totalburned').textContent=weiToDisplay(tburned)
-      document.getElementById('totalburned2').textContent=weiToDisplay(tburned)
-    })
-    tokenContract.methods.totalSupply().call().then(function(tokenTotal){
-      document.getElementById('total').textContent=weiToDisplay(tokenTotal)
-      document.getElementById('total2').textContent=weiToDisplay(tokenTotal)
-    })
+
     svContract.methods.totalSupply().call().then(function(bal){
       document.getElementById('totalShares').textContent=weiToDisplay(bal)
     })
@@ -55,7 +44,7 @@ function refreshData(){
     svContract.methods.myDividends(true).call({from:addr}).then(function(bal){
       document.getElementById('yourdivs').textContent=weiToDisplay(bal)
     })
-    processRecentEvents()
+    //processRecentEvents()
     updateReflink()
   })
 }
