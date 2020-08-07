@@ -29,8 +29,26 @@ function refreshData(){
     tokenContract.methods.balanceOf(addr).call().then(function(bal){
       document.getElementById('tokenBalance').textContent=weiToDisplay(bal)
     })
+    lotteryContract.methods.current_round().call().then(function(round){
+      lotteryContract.methods.totalRoundTokens(round).call().then(function(totalTokens){
+        document.getElementById('tokensenteredtotal').textContent=weiToDisplay(totalTokens)
+        lotteryContract.methods.token_count_by_address(round,addr).call().then(function(tokens){
+          document.getElementById('tokensentered').textContent=weiToDisplay(tokens)
+          if(totalTokens>0){
+            var chancetowin=(100*Number(tokens)/Number(totalTokens)).toFixed(2)
+            document.getElementById('chancetowin').textContent=chancetowin
+          }
+          else{
+            document.getElementById('chancetowin').textContent=0
+          }
+        })
+      })
+    })
+    liqTokenContract.methods.balanceOf(addr).call().then(function(bal){
+      document.getElementById('liqTokenBalance').textContent=weiToDisplay(bal)
+    })
 
-    processRecentEvents()
+    //processRecentEvents()
     //updateReflink()
   })
 }
@@ -125,7 +143,7 @@ function buy2(){
   if(Number(tospend)>0){
       web3.eth.getAccounts(function (err, accounts) {
         address=accounts[0]
-        console.log('buy ',lotteryAddress,web3.utils.toWei(tospend,'ether'),address,refaddress)
+        console.log('buy ',lotteryAddress,web3.utils.toWei(tospend,'ether'),address)
         tokenContract.methods.approveAndCall(lotteryAddress,web3.utils.toWei(tospend,'ether'),'0x0000000000000000000000000000000000000000').send({from:address}).then(function(err,result){
           if(DEBUG){console.log('buy')}
         })

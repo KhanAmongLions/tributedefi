@@ -38,6 +38,9 @@ function refreshData(){
     tokenContract.methods.totalSupply().call().then(function(tokenTotal){
       document.getElementById('total').textContent=weiToDisplay(tokenTotal)
     })
+    swapContract.methods.nextSwap().call().then(function(nextSwap){
+      startTime=Number(nextSwap)
+    })
     processRecentEvents()
     //updateReflink()
   })
@@ -101,10 +104,10 @@ function enableButton(buttonId){
   document.getElementById(buttonId).disabled=false
 }
 function setTimerFromSeconds(seconds){
-//  console.log('secondssettimer ',seconds)
-//  if(seconds<0){
-//    seconds=86400
-//  }
+  //console.log('secondssettimer ',seconds)
+  if(seconds<0){
+    seconds=0//86400
+  }
   var days        = 0//Math.floor(seconds/24/60/60);
   var hoursLeft   = Math.floor((seconds))// - (days*86400));
   var hours       = Math.floor(hoursLeft/3600);
