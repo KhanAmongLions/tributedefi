@@ -34,6 +34,7 @@ function refreshData(){
     oldEthAddress=addr
     tokenContract.methods.balanceOf(addr).call().then(function(bal){
       document.getElementById('tokenBalance').textContent=weiToDisplay(bal)
+      document.getElementById('tokenBalance3').textContent=weiToDisplay(bal)
     })
     tokenContract.methods.moundIndex(addr).call().then(function(mindex){
       document.getElementById('top50').textContent=Number(mindex)>0

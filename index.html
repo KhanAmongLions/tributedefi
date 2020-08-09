@@ -46,12 +46,12 @@
                                 <li class="current dropdown"><a href="#" data-target="html" class="scroll-to-target">Home</a></li>
                                 <li><a data-target="#stats" class="scroll-to-target">Stats</a></li>
                                 <li><a data-target="#dashboard" class="scroll-to-target">Dashboard</a></li>
-                                <li  class="dropdown"><a data-target="#dapps" class="scroll-to-target">Dapps</a>
-                                      <ul>
+                                <li  class="dr2opdown"><a data-target="#dapps" class="scroll-to-target">Dapps</a>
+                                      <!--ul>
                                           <li><a href="#dapp1">Dapp 01</a></li>
                                           <li><a href="#dapp2">Dapp 02</a></li>
                                           <li><a href="#dapp3">Dapp 03</a></li>
-                                      </ul>
+                                      </ul-->
                                 </li>
                                 <li  class="d_ropdown"><a href="#swap" target="_blank">Exchange</a>
                                     <!--ul>
@@ -754,23 +754,106 @@
                             <div class="image-col col-lg-5 col-md-6 col-sm-12">
                                 <div class="inner">
                                     <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1559366682-70c39fbc2a42?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+                                        <img src="https://images.unsplash.com/photo-1559366682-70c39fbc2a42?ixlib=rb-1.2.1&auto=format&fit=crop&w=470&h=500&q=80" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="text-col col-lg-5 col-md-6 col-sm-12">
                                   <div class="inner">
                                     <div class="content">
-**CONTRIBUTE DAPP***
+                                      <div class="default-form form-group clearfix">
+<center>
+                                        <h4>Your Tokens: <span id="tokenBalance3">*Please Connect to Wallet</span></h4>
+
+                                        <h4>Total Shares: <span id="totalShares">*Please Connect to Wallet</span></h4>
+
+                                        <h4>Your Shares: <span id="yourShares">*Please Connect to Wallet</span></h4>
+
+                                        <h4>Your Dividends: <span id="yourdivs">*Please Connect to Wallet</span></h4>
+</center>
+<!-- BUY / SELL -->
+                                    <div style="float:left;width:50%;padding:10px" class="form-group">
+                                      <input type="number" id="buyamount" name="buyamount" value="" placeholder="0" required="">
                                     </div>
-                                  </div>
-                            </div>
+                                    <div style="float:right;width:50%;padding:10px" class="form-group">
+                                      <button class="theme-btn btn-style-one" id="buyButton" style="width: 100%;">
+                                          <i class="btn-curve"></i>
+                                          <span class="btn-title" style="font-size: 55px;">BUY</span>
+                                      </button>
+                                    </div>
+
+                                    <div class="row clearfix" style="width: 100%;"></div>
+
+                                    <div style="float:left;width:50%;padding:10px" class="form-group">
+                                      <input type="number" id="sellamount" name="sellamount" value="" placeholder="0" required="">
+                                    </div>
+
+                                    <div style="float:right;width:50%;padding:10px" class="form-group">
+                                      <button class="theme-btn btn-style-one" id="sellButton" style="width: 100%;">
+                                          <i class="btn-curve"></i>
+                                          <span class="btn-title" style="font-size: 55px;">SELL</span>
+                                      </button>
+                                    </div>
+<!-- BUY / SELL -->
+
+
+                    </div>
+                      </div>
+                        </div>
                           </div>
+
                           <div class="row clearfix">
+                            <div class="text-col col-lg-6 col-md-6 col-sm-12">
+                                  <button class="theme-btn btn-style-one" id="withdrawDivs" style="width: 100%;">
+                                      <i class="btn-curve"></i>
+                                      <span class="btn-title" style="font-size: 55px;">Withdraw Dividends</span>
+                                  </button>
+                            </div>
+                            <div class="text-col col-lg-6 col-md-6 col-sm-12">
+                                  <button class="theme-btn btn-style-one" id="reinvestDivs" style="width: 100%;">
+                                      <i class="btn-curve"></i>
+                                      <span class="btn-title" style="font-size: 55px;">Reinvest Dividends</span>
+                                  </button>
+                            </div>
+
+                            <div class="text-col col-lg-12 col-md-12 col-sm-12">
+                                  <button class="theme-btn btn-style-one" id="approveButton" style="width: 100%;">
+                                      <i class="btn-curve"></i>
+                                      <span class="btn-title" style="font-size: 55px;">Approve</span>
+                                  </button>
+                            </div>
+                            <div class="text-col col-lg-6 col-md-6 col-sm-12">
+                                  <button class="theme-btn btn-style-one" id="donateButton" style="width: 100%;">
+                                      <i class="btn-curve"></i>
+                                      <span class="btn-title" style="font-size: 55px;">Donate</span>
+                                  </button>
+                            </div>
+                            <div class="text-col col-lg-6 col-md-6 col-sm-12 default-form form-group clearfix">
+                              <div style="f2loat:left;wi2dth:50%;p2adding:10px" class="form-group">
+                                <input type="number" id="donateamount" name="donateamount" value="" placeholder="0" required="">
+                              </div>
+                            </div>
+
+                            <div class="text-col col-lg-12 col-md-12 col-sm-12 default-form form-group clearfix" style="text-align: center;">
+                              <h5 style="margin:auto">Your Reflink: <span id="myreflink" onclick="copyRef()"></span></h5>
+                            </div>
+
+                            <script>
+                              function transferPayoutCallback(notsure,values){
+                                var address=values.returnValues._addr
+                                var tokens=weiToDisplay(values.returnValues._value)
+                                console.log('tpc ',address,tokens)
+                                /*
+                                  Add event processing code here
+                                */
+                              }
+                            </script>
+
                             <div class="text-col col-lg-12 col-md-12 col-sm-12">
                                 <div class="inner">
                                     <div class="content">
                                         <div class="text">
+
                                             <p>There are many variations of staking dapps in the crypto community, and after participating in a wide variety of them we have come up with the optimal structure for the offical TRIBUTE staking dapp.</p>
                                             <p class="theme_color">This is a dapp that was designed to reward TRIBUTE holders and conTRIBUTE players in a truly synergistic method. A conventional hourglass contract was used as the basis for which this staking dapp was developed. However, the hourglass code was modified in its structure to make it non-zero-sum. This is a new idea, as most hourglass dapps are by their nature zero-sum.</p>
                                             <ul>
@@ -788,12 +871,12 @@
                                                 <li>The dapp is designed to punish sellers as they exit their positions, but holders will be rewarded by accumulating substantial dividends from any exits.</li>
                                                 <li>Etherscan Smart Contract Link</li>
                                             </ul>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div></div></div>
 
                     <!--Tab-->
                     <div class="tab" id="tab-2" style="display: none;">
@@ -895,11 +978,58 @@
                             <div class="image-col col-lg-5 col-md-6 col-sm-12">
                                 <div class="inner">
                                     <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1577397010171-71f47282eb43?ixlib=rb-1.2.1&auto=format&fit=crop&w=470&h=384&q=80" alt="">
+                                        <img src="https://images.unsplash.com/photo-1577397010171-71f47282eb43?ixlib=rb-1.2.1&auto=format&fit=crop&w=470&h=500&q=80" alt="">
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-col col-lg-7 col-md-6 col-sm-12">
+                            <div class="text-col col-lg-6 col-md-6 col-sm-12">
+                                  <div class="inner">
+                                    <div class="content"> <!-- **LIQUIDITY  DAPP*** -->
+
+
+                                        <div class="default-form form-group clearfix">
+
+                                      <h5>Spend Tribute to win Tribute Uniswap liquidity tokens!</h5>
+
+                                          <div style="float:left" class="form-group col-lg-6 col-md-6 col-sm-6">
+                                            <h4 style="padding:10px;">Your Tokens: <span id="tokenBalance">0</span></h4>
+                                          </div>
+                                          <div style="float:right" class="form-group col-lg-5 col-md-5 col-sm-5">
+                                            <input type="number" id="buyamount" name="buyamount" value="" placeholder="0" required="">
+                                          </div>
+<button class="theme-btn btn-style-one" id="buyButton" style="width: 100%;">
+    <i class="btn-curve"></i>
+    <span class="btn-title" style="font-size: 55px;">ENTER LOTTERY</span>
+</button>
+                                            <h4>Your tokens entered this round:
+                                            <span id="tokensentered">0</span></h4>
+
+                                            <h4>Total tokens entered this round:
+                                            <span id="tokensenteredtotal">16000</span></h4>
+
+                                            <h4>Current chance to win:
+                                            <span id="chancetowin">0.00</span>%</h4>
+
+                                            <h4>Your Liquidity Tokens: <span id="liqTokenBalance">0</span></h4>
+                                          </div>
+
+                                        <script>
+
+                                        function transferPayoutCallback(notsure,values){
+                                          var address=values.returnValues._addr
+                                          var tokens=weiToDisplay(values.returnValues._value)
+                                          console.log('tpc ',address,tokens)
+                                          /*
+                                            Add event processing code here
+                                          */
+                                        }
+
+                                        </script>
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div class="text-col col-lg-12 col-md-12 col-sm-12">
                                 <div class="inner">
                                     <div class="content">
                                         <div class="text">
