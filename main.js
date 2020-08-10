@@ -140,7 +140,7 @@ function setTimer(days,hours,minutes,seconds){
   document.getElementById('seconds').textContent=seconds.toFixed(2)
 }
 function weiToDisplay(wei){
-    return formatEthValue(web3.utils.fromWei(wei,'ether'))
+    return formatEthValue(web3.utils.fromWei(wei,'ether')).toLocaleString()
 }
 function formatEthValue(ethstr){
     return parseFloat(parseFloat(ethstr).toFixed(2));
