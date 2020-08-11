@@ -42,11 +42,13 @@ function refreshData(){
     tokenContract.methods.totalBurned().call().then(function(tburned){
       document.getElementById('totalburned').textContent=weiToDisplay(tburned)
       document.getElementById('totalburned2').textContent=weiToDisplay(tburned)
-      document.getElementById('burnedcounter').setAttribute("data-stop",web3.utils.fromWei(tburned,'ether'))
+      //document.getElementById('burnedcounter').setAttribute("data-stop",web3.utils.fromWei(tburned,'ether'))
     })
     tokenContract.methods.totalSupply().call().then(function(tokenTotal){
       document.getElementById('total').textContent=weiToDisplay(tokenTotal)
       document.getElementById('total2').textContent=weiToDisplay(tokenTotal)
+      //circsupplycounter
+      //document.getElementById('circsupplycounter').setAttribute("data-stop",web3.utils.fromWei(tokenTotal,'ether'))
     })
     svContract.methods.totalSupply().call().then(function(bal){
       document.getElementById('totalShares').textContent=weiToDisplay(bal)
@@ -141,7 +143,7 @@ function setTimer(days,hours,minutes,seconds){
 
   document.getElementById('hours').textContent=hours
   document.getElementById('minutes').textContent=minutes
-  document.getElementById('seconds').textContent=seconds.toFixed(2)
+  document.getElementById('seconds').textContent=seconds.toFixed(0)
 }
 function weiToDisplay(wei){
     return formatEthValue(web3.utils.fromWei(wei,'ether')).toLocaleString()
