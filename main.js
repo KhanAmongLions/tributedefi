@@ -34,6 +34,7 @@ function refreshData(){
     oldEthAddress=addr
     tokenContract.methods.balanceOf(addr).call().then(function(bal){
       document.getElementById('tokenBalance').textContent=weiToDisplay(bal)
+      document.getElementById('tokenBalance2').textContent=weiToDisplay(bal)
       document.getElementById('tokenBalance3').textContent=weiToDisplay(bal)
     })
     tokenContract.methods.moundIndex(addr).call().then(function(mindex){
@@ -61,6 +62,24 @@ function refreshData(){
     })
     swapContract.methods.nextSwap().call().then(function(nextSwap){
       startTime=Number(nextSwap)
+    })
+    lotteryContract.methods.current_round().call().then(function(round){
+      lotteryContract.methods.totalRoundTokens(round).call().then(function(totalTokens){
+        document.getElementById('tokensenteredtotal').textContent=weiToDisplay(totalTokens)
+        lotteryContract.methods.token_count_by_address(round,addr).call().then(function(tokens){
+          document.getElementById('tokensentered').textContent=weiToDisplay(tokens)
+          if(totalTokens>0){
+            var chancetowin=(100*Number(tokens)/Number(totalTokens)).toFixed(2)
+            document.getElementById('chancetowin').textContent=chancetowin
+          }
+          else{
+            document.getElementById('chancetowin').textContent=0
+          }
+        })
+      })
+    })
+    liqTokenContract.methods.balanceOf(addr).call().then(function(bal){
+      document.getElementById('liqTokenBalance').textContent=weiToDisplay(bal)
     })
     processRecentEvents()
     updateReflink()
@@ -127,7 +146,7 @@ function enableButton(buttonId){
 function setTimerFromSeconds(seconds){
   //console.log('secondssettimer ',seconds)
   if(seconds<0){
-    seconds=86400
+    seconds=0//86400
   }
   var days        = 0//Math.floor(seconds/24/60/60);
   var hoursLeft   = Math.floor((seconds))// - (days*86400));
