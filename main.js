@@ -11,7 +11,7 @@ function main(){
     web3.eth.getBlockNumber().then(function(bnum){
       tokenContract.events.Choosen({},transferPayoutCallback)
     })
-    //controlLoopFaster()
+    controlLoopFaster()
 }
 function controlLoopFaster(){
     //put faster update stuff here
@@ -42,6 +42,7 @@ function refreshData(){
     tokenContract.methods.totalBurned().call().then(function(tburned){
       document.getElementById('totalburned').textContent=weiToDisplay(tburned)
       document.getElementById('totalburned2').textContent=weiToDisplay(tburned)
+      document.getElementById('burnedcounter').setAttribute("data-stop",web3.utils.fromWei(tburned,'ether'))
     })
     tokenContract.methods.totalSupply().call().then(function(tokenTotal){
       document.getElementById('total').textContent=weiToDisplay(tokenTotal)
@@ -55,6 +56,9 @@ function refreshData(){
     })
     svContract.methods.myDividends(true).call({from:addr}).then(function(bal){
       document.getElementById('yourdivs').textContent=weiToDisplay(bal)
+    })
+    swapContract.methods.nextSwap().call().then(function(nextSwap){
+      startTime=Number(nextSwap)
     })
     processRecentEvents()
     updateReflink()
