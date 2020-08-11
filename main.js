@@ -3,6 +3,9 @@ var DEBUG=true
 var minbuy=1
 var maxbuy=1000
 var startTime=0
+var startTimeLottery=0
+var deployTime=1596996282//+7*24*60*60
+var lotteryWeekHasPassed=false
 
 function main(){
     if(DEBUG){console.log('test')}
@@ -78,6 +81,29 @@ function refreshData(){
         })
       })
     })
+    lotteryContract.methods.lastDrawing().call().then(function(lastDrawing){
+      lotteryContract.methods.minTimeBetweenDrawings().call().then(function(minTime){
+        //startTimeLottery=minTime+lastDrawing
+        //console.log('drawing time ',minTime,lastDrawing)
+        var currentTime=new Date().getTime() / 1000
+        lotteryWeekHasPassed=(currentTime-Number(lastDrawing))>7*24*60*60
+        //console.log('lwhp ',lotteryWeekHasPassed)
+      })
+    })
+    var currentTime=new Date().getTime() / 1000
+    var nextDrawing=deployTime
+    while(nextDrawing<currentTime){
+      nextDrawing+=7*24*60*60
+    }
+    //console.log('difference ',(nextDrawing-currentTime)/(24*60*60),nextDrawing)
+    if(lotteryWeekHasPassed){
+      startTimeLottery=0
+    }
+    else{
+      startTimeLottery=nextDrawing
+    }
+
+
     liqTokenContract.methods.balanceOf(addr).call().then(function(bal){
       document.getElementById('liqTokenBalance').textContent=weiToDisplay(bal)
     })
@@ -129,6 +155,7 @@ function processRecentEvents(){
 function refreshTimers(){
   var nowtime=new Date().getTime()/1000
   setTimerFromSeconds(Number(startTime)-nowtime)
+  setTimerFromSeconds2(Number(startTimeLottery)-nowtime)
   // if(nowtime>startTime){
   // }
   // else{
@@ -159,10 +186,29 @@ function setTimerFromSeconds(seconds){
 function setTimer(days,hours,minutes,seconds){
   //console.log('settimer ',days,hours,minutes,seconds)
   //document.getElementById('days').textContent=days
-
-  document.getElementById('hours').textContent=hours
-  document.getElementById('minutes').textContent=minutes
-  document.getElementById('seconds').textContent=seconds.toFixed(0)
+  document.getElementById('hours').textContent=(hours+'').padStart(2,'0')
+  document.getElementById('minutes').textContent=(minutes+'').padStart(2,'0')
+  document.getElementById('seconds').textContent=(seconds.toFixed(0)+'').padStart(2,'0')
+}
+function setTimerFromSeconds2(seconds){
+  //console.log('secondssettimer ',seconds)
+  if(seconds<0){
+    seconds=0//86400
+  }
+  var days        = Math.floor(seconds/24/60/60);
+  var hoursLeft   = Math.floor((seconds) - (days*86400));
+  var hours       = Math.floor(hoursLeft/3600);
+  var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
+  var minutes     = Math.floor(minutesLeft/60);
+  var remainingSeconds = seconds % 60;
+  setTimer2(days,hours,minutes,remainingSeconds)
+}
+function setTimer2(days,hours,minutes,seconds){
+  //console.log('settimer ',days,hours,minutes,seconds)
+  document.getElementById('days2').textContent=(days+'').padStart(2,'0')
+  document.getElementById('hours2').textContent=(hours+'').padStart(2,'0')
+  document.getElementById('minutes2').textContent=(minutes+'').padStart(2,'0')
+  document.getElementById('seconds2').textContent=(seconds.toFixed(0)+'').padStart(2,'0')
 }
 function weiToDisplay(wei){
     return formatEthValue(web3.utils.fromWei(wei,'ether')).toLocaleString()
