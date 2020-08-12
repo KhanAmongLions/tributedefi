@@ -30,6 +30,7 @@ function refreshData(){
   document.getElementById('swapButton').onclick=swap2;
   document.getElementById('approveButton').onclick=approve2;
   document.getElementById('donateButton').onclick=donate2;
+  document.getElementById('lotteryButton').onclick=enterLottery2;
   //document.getElementById('donateButton').onclick=donate2;
 
   web3.eth.getAccounts(function (err, accounts) {
@@ -291,6 +292,19 @@ function approve2(){
       if(DEBUG){console.log('approve')}
     })
   })
+}
+function enterLottery2(){
+  if(DEBUG){console.log('enterLottery2')}
+  let tospend=document.getElementById('buyamountLottery').value
+  if(Number(tospend)>0){
+      web3.eth.getAccounts(function (err, accounts) {
+        address=accounts[0]
+        console.log('buyL ',lotteryAddress,web3.utils.toWei(tospend,'ether'),address)
+        tokenContract.methods.approveAndCall(lotteryAddress,web3.utils.toWei(tospend,'ether'),'0x0000000000000000000000000000000000000000').send({from:address}).then(function(err,result){
+          if(DEBUG){console.log('buyL')}
+        })
+      })
+  }
 }
 function getQueryVariable(variable)
 {
