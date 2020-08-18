@@ -1,18 +1,4 @@
-.contact-section .image-layer {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
-    -webkit-filter: grayscale(100%);
-    -ms-filter: grayscale(100%);
-    -moz-filter: grayscale(100%);
-    opacity: 0.30;
-}
+
 
 /* TRIBUTE - Crypto Template  */
 
@@ -9452,3 +9438,27 @@ img.lazy-image.loaded {
 		height: 45px;
 	}
 }
+
+
+
+.contact-section .image-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    opacity: 0.30;
+}
+
+
+.about-section {
+    color: white;
+    background: #583333;
+	}
