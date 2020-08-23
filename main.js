@@ -43,7 +43,7 @@ function refreshData(){
     })
     tokenContract.methods.moundIndex(addr).call().then(function(mindex){
       window.mindex=mindex
-      document.getElementById('top50').textContent=mindex//(Number(mindex)>0)?'Yes':'No'
+      document.getElementById('top50').textContent=(Number(mindex)>0)?'Yes':'No'//mindex//
     })
     tokenContract.methods.totalBurned().call().then(function(tburned){
       document.getElementById('totalburned').textContent=weiToDisplay(tburned)
