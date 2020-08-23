@@ -12,6 +12,7 @@ swapContractAddress="0xb743F29b2B82d713088F36B62957B9c81892DF73"//"0xba587245f74
 liqTokenAddress=""//"0xc258c7e80E9e441f69fc3d25582c0B577b8df0ba"
 lotteryAddress="0xA2dc5fBD3BaC20FEe425d0836a835C312DF92f55"//"0x0693a81BBE1321a8d32A46572d19786D16911206"
 
+liqTokenContract=null
 setup()
 function setup(){
   window.addEventListener('load', async () => {
