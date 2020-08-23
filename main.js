@@ -42,7 +42,7 @@ function refreshData(){
       document.getElementById('tokenBalance3').textContent=weiToDisplay(bal)
     })
     tokenContract.methods.moundIndex(addr).call().then(function(mindex){
-      document.getElementById('top50').textContent=Number(mindex)>0
+      document.getElementById('top50').textContent=(Number(mindex)>0)?'Yes':'No'
     })
     tokenContract.methods.totalBurned().call().then(function(tburned){
       document.getElementById('totalburned').textContent=weiToDisplay(tburned)
