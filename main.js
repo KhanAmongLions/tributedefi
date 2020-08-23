@@ -104,10 +104,12 @@ function refreshData(){
       startTimeLottery=nextDrawing
     }
 
+    if(liqTokenContract){
+      liqTokenContract.methods.balanceOf(addr).call().then(function(bal){
+        document.getElementById('liqTokenBalance').textContent=weiToDisplay(bal)
+      })
+    }
 
-    liqTokenContract.methods.balanceOf(addr).call().then(function(bal){
-      document.getElementById('liqTokenBalance').textContent=weiToDisplay(bal)
-    })
     processRecentEvents()
     updateReflink()
   })
