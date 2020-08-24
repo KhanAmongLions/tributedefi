@@ -56,12 +56,15 @@ function refreshData(){
       //circsupplycounter
       //document.getElementById('circsupplycounter').setAttribute("data-stop",web3.utils.fromWei(tokenTotal,'ether'))
     })
-    svContract.methods.totalSupply().call().then(function(bal){
-      document.getElementById('totalShares').textContent=weiToDisplay(bal)
+    svContract.methods.totalSupply().call().then(function(totalbal){
+      document.getElementById('totalShares').textContent=weiToDisplay(totalbal)
+      svContract.methods.balanceOf(addr).call().then(function(bal){
+        var totalbalnum=Number(web3.utils.fromWei(totalbal,'ether'))
+        var balnum=Number(web3.utils.fromWei(bal,'ether'))
+        document.getElementById('yourShares').textContent=weiToDisplay(bal)+" ("+((balnum/totalbalnum)*100).toFixed(2)+"%)"
+      })
     })
-    svContract.methods.balanceOf(addr).call().then(function(bal){
-      document.getElementById('yourShares').textContent=weiToDisplay(bal)
-    })
+
     svContract.methods.myDividends(true).call({from:addr}).then(function(bal){
       document.getElementById('yourdivs').textContent=weiToDisplay(bal)
     })
