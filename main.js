@@ -63,7 +63,13 @@ function refreshData(){
       svContract.methods.balanceOf(addr).call().then(function(bal){
         var totalbalnum=Number(web3.utils.fromWei(totalbal,'ether'))
         var balnum=Number(web3.utils.fromWei(bal,'ether'))
-        document.getElementById('yourShares').textContent=weiToDisplay(bal)+" ("+((balnum/totalbalnum)*100).toFixed(2)+"%)"
+        var percentShares=((balnum/totalbalnum)*100)
+        if(percentShares>1){
+          document.getElementById('yourShares').textContent=weiToDisplay(bal)+" ("+percentShares.toFixed(2)+"%)"
+        }
+        else{
+          document.getElementById('yourShares').textContent=weiToDisplay(bal)
+        }
       })
     })
 
