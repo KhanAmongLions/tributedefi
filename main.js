@@ -159,13 +159,16 @@ function processRecentEvents(){
             else if(count<MAX_LIST_ELEMENTS){
               //console.log('myEvent: ' + JSON.stringify(eventResult.returnValues));
               var timedisplay=""//new Date(1000*block.timestamp)
-              addToList('recentrewards',weiToDisplay(eventResult.returnValues._value)+" "+eventResult.returnValues._addr+" "+timedisplay)
-              count++
-              if(usercount<MAX_LIST_ELEMENTS && eventResult.returnValues._addr==accounts[0]){
-                //console.log('found user payout event ')
-                addToList('yourrecentrewards',weiToDisplay(eventResult.returnValues._value)+" "+timedisplay)
-                usercount++
+              if(eventResult.returnValues._addr!='0x0000000000000000000000000000000000000000'){
+                addToList('recentrewards',weiToDisplay(eventResult.returnValues._value)+" "+eventResult.returnValues._addr+" "+timedisplay)
+                count++
+                if(usercount<MAX_LIST_ELEMENTS && eventResult.returnValues._addr==accounts[0]){
+                  //console.log('found user payout event ')
+                  addToList('yourrecentrewards',weiToDisplay(eventResult.returnValues._value)+" "+timedisplay)
+                  usercount++
+                }
               }
+
             }
           //})
         })
