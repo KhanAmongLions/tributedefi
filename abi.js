@@ -838,13 +838,180 @@ tokenAbi=[
 ]
 svAbi=[
 	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokens",
+				"type": "uint256"
+			}
+		],
+		"name": "Transfer",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "customerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			}
+		],
+		"name": "onDistribute",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "customerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "ERC20Reinvested",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokensMinted",
+				"type": "uint256"
+			}
+		],
+		"name": "onReinvestment",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "customerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "incomingERC20",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokensMinted",
+				"type": "uint256"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "referredBy",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "onTokenPurchase",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "customerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "tokensBurned",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "ERC20Earned",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			}
+		],
+		"name": "onTokenSell",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "customerAddress",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "ERC20Withdrawn",
+				"type": "uint256"
+			}
+		],
+		"name": "onWithdraw",
+		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "activate",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": false,
 		"inputs": [
 			{
+				"internalType": "uint256",
 				"name": "_amount",
 				"type": "uint256"
 			},
 			{
+				"internalType": "address",
 				"name": "_referredBy",
 				"type": "address"
 			}
@@ -852,6 +1019,7 @@ svAbi=[
 		"name": "buy",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -864,14 +1032,17 @@ svAbi=[
 		"constant": false,
 		"inputs": [
 			{
+				"internalType": "uint256",
 				"name": "_amount",
 				"type": "uint256"
 			},
 			{
+				"internalType": "address",
 				"name": "_customerAddress",
 				"type": "address"
 			},
 			{
+				"internalType": "address",
 				"name": "_referredBy",
 				"type": "address"
 			}
@@ -879,6 +1050,7 @@ svAbi=[
 		"name": "buyFor",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -891,6 +1063,7 @@ svAbi=[
 		"constant": false,
 		"inputs": [
 			{
+				"internalType": "uint256",
 				"name": "todonate",
 				"type": "uint256"
 			}
@@ -914,18 +1087,22 @@ svAbi=[
 		"constant": false,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "from",
 				"type": "address"
 			},
 			{
+				"internalType": "uint256",
 				"name": "tokens",
 				"type": "uint256"
 			},
 			{
+				"internalType": "address",
 				"name": "token",
 				"type": "address"
 			},
 			{
+				"internalType": "bytes20",
 				"name": "data",
 				"type": "bytes20"
 			}
@@ -949,35 +1126,13 @@ svAbi=[
 		"constant": false,
 		"inputs": [
 			{
+				"internalType": "uint256",
 				"name": "_amountOfERC20s",
 				"type": "uint256"
 			}
 		],
 		"name": "sell",
 		"outputs": [],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "_toAddress",
-				"type": "address"
-			},
-			{
-				"name": "_amountOfERC20s",
-				"type": "uint256"
-			}
-		],
-		"name": "transfer",
-		"outputs": [
-			{
-				"name": "",
-				"type": "bool"
-			}
-		],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -994,7 +1149,13 @@ svAbi=[
 	{
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "token",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "extraAmbassador",
 				"type": "address"
 			}
 		],
@@ -1003,151 +1164,10 @@ svAbi=[
 		"type": "constructor"
 	},
 	{
-		"payable": true,
-		"stateMutability": "payable",
-		"type": "fallback"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "customerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "price",
-				"type": "uint256"
-			}
-		],
-		"name": "onDistribute",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "customerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "incomingERC20",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "tokensMinted",
-				"type": "uint256"
-			},
-			{
-				"indexed": true,
-				"name": "referredBy",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "timestamp",
-				"type": "uint256"
-			}
-		],
-		"name": "onTokenPurchase",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "customerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "tokensBurned",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "ERC20Earned",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "timestamp",
-				"type": "uint256"
-			}
-		],
-		"name": "onTokenSell",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "customerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "ERC20Reinvested",
-				"type": "uint256"
-			},
-			{
-				"indexed": false,
-				"name": "tokensMinted",
-				"type": "uint256"
-			}
-		],
-		"name": "onReinvestment",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "customerAddress",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "ERC20Withdrawn",
-				"type": "uint256"
-			}
-		],
-		"name": "onWithdraw",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [
-			{
-				"indexed": true,
-				"name": "from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "to",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "tokens",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "_customerAddress",
 				"type": "address"
 			}
@@ -1155,6 +1175,7 @@ svAbi=[
 		"name": "balanceOf",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1169,6 +1190,7 @@ svAbi=[
 		"name": "buyPrice",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1183,6 +1205,7 @@ svAbi=[
 		"name": "decimals",
 		"outputs": [
 			{
+				"internalType": "uint8",
 				"name": "",
 				"type": "uint8"
 			}
@@ -1195,6 +1218,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "_customerAddress",
 				"type": "address"
 			}
@@ -1202,6 +1226,37 @@ svAbi=[
 		"name": "dividendsOf",
 		"outputs": [
 			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "entryFee_",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "exitFee_",
+		"outputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1216,6 +1271,7 @@ svAbi=[
 		"name": "getInvested",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1228,6 +1284,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -1235,6 +1292,7 @@ svAbi=[
 		"name": "invested_",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1249,34 +1307,42 @@ svAbi=[
 		"name": "multiData",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			},
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1289,6 +1355,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "bool",
 				"name": "_includeReferralBonus",
 				"type": "bool"
 			}
@@ -1296,6 +1363,7 @@ svAbi=[
 		"name": "myDividends",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1310,6 +1378,7 @@ svAbi=[
 		"name": "myTokens",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1324,6 +1393,7 @@ svAbi=[
 		"name": "name",
 		"outputs": [
 			{
+				"internalType": "string",
 				"name": "",
 				"type": "string"
 			}
@@ -1338,6 +1408,7 @@ svAbi=[
 		"name": "onlyAmbassadors",
 		"outputs": [
 			{
+				"internalType": "bool",
 				"name": "",
 				"type": "bool"
 			}
@@ -1350,6 +1421,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -1357,6 +1429,7 @@ svAbi=[
 		"name": "payoutsTo_",
 		"outputs": [
 			{
+				"internalType": "int256",
 				"name": "",
 				"type": "int256"
 			}
@@ -1369,6 +1442,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -1376,6 +1450,22 @@ svAbi=[
 		"name": "referralBalance_",
 		"outputs": [
 			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "referralFee_",
+		"outputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1390,6 +1480,7 @@ svAbi=[
 		"name": "sellPrice",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1404,6 +1495,7 @@ svAbi=[
 		"name": "symbol",
 		"outputs": [
 			{
+				"internalType": "string",
 				"name": "",
 				"type": "string"
 			}
@@ -1416,6 +1508,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -1423,6 +1516,7 @@ svAbi=[
 		"name": "tokenBalanceLedger_",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1437,6 +1531,7 @@ svAbi=[
 		"name": "totalERC20Balance",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1449,6 +1544,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "_client",
 				"type": "address"
 			}
@@ -1456,6 +1552,7 @@ svAbi=[
 		"name": "totalReferralEarnings",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1468,6 +1565,7 @@ svAbi=[
 		"constant": true,
 		"inputs": [
 			{
+				"internalType": "address",
 				"name": "",
 				"type": "address"
 			}
@@ -1475,6 +1573,7 @@ svAbi=[
 		"name": "totalReferralEarnings_",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
@@ -1489,6 +1588,7 @@ svAbi=[
 		"name": "totalSupply",
 		"outputs": [
 			{
+				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}

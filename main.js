@@ -32,7 +32,6 @@ function refreshData(){
   document.getElementById('donateButton').onclick=donate2;
   document.getElementById('lotteryButton').onclick=enterLottery2;
   //document.getElementById('donateButton').onclick=donate2;
-  //buyresult sellresult
 
   web3.eth.getAccounts(function (err, accounts) {
     let addr=accounts[0]
@@ -73,7 +72,17 @@ function refreshData(){
         }
       })
     })
-
+      //buyresult sellresult
+    svContract.methods.entryFee_().call().then(function(fee){
+      var tospend=document.getElementById('buyamount').value
+      var result=tospend-tospend*(Number(fee)/100)
+      document.getElementById('buyresult').textContent=result.toFixed(2)
+    })
+    svContract.methods.exitFee_().call().then(function(fee){
+      var tospend=document.getElementById('sellamount').value
+      var result=tospend-tospend*(Number(fee)/100)
+      document.getElementById('sellresult').textContent=result.toFixed(2)
+    })
     svContract.methods.myDividends(true).call({from:addr}).then(function(bal){
       document.getElementById('yourdivs').textContent=weiToDisplay(bal)
     })
