@@ -32,6 +32,7 @@ function refreshData(){
   document.getElementById('donateButton').onclick=donate2;
   document.getElementById('lotteryButton').onclick=enterLottery2;
   //document.getElementById('donateButton').onclick=donate2;
+  //buyresult sellresult
 
   web3.eth.getAccounts(function (err, accounts) {
     let addr=accounts[0]
