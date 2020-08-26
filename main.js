@@ -113,7 +113,7 @@ function refreshData(){
         }
         else{
           var currentTime=new Date().getTime() / 1000
-          lotteryWeekHasPassed=(currentTime-Number(lastDrawing))>7*24*60*60
+          lotteryWeekHasPassed=(currentTime-Number(lastDrawing))>1*24*60*60
           //console.log('lwhp ',lotteryWeekHasPassed)
         }
 
@@ -122,7 +122,7 @@ function refreshData(){
     var currentTime=new Date().getTime() / 1000
     var nextDrawing=deployTime
     while(nextDrawing<currentTime){
-      nextDrawing+=7*24*60*60
+      nextDrawing+=1*24*60*60
     }
     //console.log('difference ',(nextDrawing-currentTime)/(24*60*60),nextDrawing)
     if(lotteryWeekHasPassed){
@@ -363,23 +363,86 @@ function copyRef() {
   //alert("Copied the text: " + copyText.value);
 }
 function updateReflink(){
+  //save reflink at top as cookie
+  var urlref=getQueryVariable('ref')
+  if(urlref){
+    //var currentref=getCookie('ref')
+    //console.log('currentref ',currentref,urlref)
+    //if(!currentref){//only first in order to lock it
+      setCookie('ref',urlref)
+    //}
+    //else{
+      //console.log('cookie locked as ',currentref)
+    //}
+  }
   web3.eth.getAccounts(function (err, accounts) {
     var prldoc=document.getElementById('myreflink')
     prldoc.textContent=window.location.origin.replace('http://','https://')+"?ref="+accounts[0]
   })
+}
+// function updateReflink(){
+//   web3.eth.getAccounts(function (err, accounts) {
+//     var prldoc=document.getElementById('myreflink')
+//     prldoc.textContent=window.location.origin.replace('http://','https://')+"?ref="+accounts[0]
+//   })
+// }
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
 }
 function getRefToUse(){
   var reftouse=0;
   var urlref=getQueryVariable('ref')
   if(!urlref){
     urlref='0x0000000000000000000000000000000000000000'
+    var currentref=getCookie('ref')
+    //console.log('currentref ',currentref,urlref)
+    if(!currentref){//only first in order to lock it
+      reftouse=urlref
+    }
+    else{
+      reftouse=currentref
+      //console.log('cookie locked as ',currentref)
+    }
   }
-  reftouse=escape(urlref)
+  else{
+    reftouse=urlref
+  }
+
+  reftouse=escape(reftouse)
   if(reftouse.length!=42){
     reftouse='0x0000000000000000000000000000000000000000'
   }
   return reftouse
 }
+// function getRefToUse(){
+//   var reftouse=0;
+//   var urlref=getQueryVariable('ref')
+//   if(!urlref){
+//     urlref='0x0000000000000000000000000000000000000000'
+//   }
+//   reftouse=escape(urlref)
+//   if(reftouse.length!=42){
+//     reftouse='0x0000000000000000000000000000000000000000'
+//   }
+//   return reftouse
+// }
 function copyToClipboard(element) {
     var $temp = $("<input>");
     $("body").append($temp);
