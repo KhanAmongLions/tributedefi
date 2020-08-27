@@ -51,8 +51,8 @@ function refreshData(){
     //   //document.getElementById('burnedcounter').setAttribute("data-stop",web3.utils.fromWei(tburned,'ether'))
     // })
     tokenContract.methods.totalSupply().call().then(function(tokenTotal){
-      document.getElementById('total').textContent=weiToDisplay(tokenTotal)
-      document.getElementById('total2').textContent=weiToDisplay(tokenTotal)
+      document.getElementById('total').textContent=parseFloat((Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()//parseFloat(weiToDisplay(tokenTotal)).toFixed(0)
+      document.getElementById('total2').textContent=parseFloat((Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
       document.getElementById('totalburned').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
       document.getElementById('totalburned2').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
       //circsupplycounter
