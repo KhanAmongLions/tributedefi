@@ -416,7 +416,8 @@ figure {
 	background-color: rgba(0, 0, 0, 0);
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-image: url(../images/icons/preloader.png);
+	background-image: url(../images/tribute_logo_x.png);
+	background-size: 5%;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -2628,6 +2629,14 @@ img.lazy-image.loaded {
 	-webkit-transition: all 0.5s ease;
 	-ms-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
+}
+
+.service-block .inner-box h4{
+	color: #cfb17f;
+}
+
+.service-block .inner-box:hover h4{
+	color:white;
 }
 
 .services-section .row .service-block .inner-box:hover:before,
@@ -6475,7 +6484,7 @@ img.lazy-image.loaded {
 }
 
 .fluid-section .column:nth-child(2) .inner {
-	background: var(--thm-base);
+	/*background: var(--thm-base);*/
 }
 
 .fluid-section .image-layer {
