@@ -579,6 +579,12 @@ img {
 	z-index: 1;
 }
 
+@media (max-width: 480px){
+	.main-header .header-upper .logo-box .logo img {
+		width: 200px;
+	}
+}
+
 .main-header .other-links {
 	position: relative;
 	float: right;
@@ -4156,7 +4162,7 @@ img.lazy-image.loaded {
 .parallax-section .content-box h2 {
 	position: relative;
 	display: block;
-	font-size: 70px;
+	font-size: 60px;
 	line-height: 1em;
 	text-transform: uppercase;
 	color: #ffffff;
@@ -4164,8 +4170,23 @@ img.lazy-image.loaded {
 	margin-bottom: 0px;
 }
 
+@media(max-width: 480px){
+	.parallax-section .content-box h2 {
+		font-size: 30px;
+	}
+}
+
 .parallax-section .content-box h2 span {
 	color: var(--thm-base);
+}
+
+.parallax-section .content-box .social-links li a{
+	transition: color 300ms ease-in-out;
+}
+
+.parallax-section .content-box .social-links li a:hover{
+	transition: color 300ms ease-in-out;
+	color: white;
 }
 
 /***
@@ -4559,6 +4580,7 @@ img.lazy-image.loaded {
 }
 
 .news-block .post-meta {
+	font-family: var(--thm-font);
 	position: relative;
 	top: -27px;
 	margin: 0 10px -3px;
@@ -7126,7 +7148,7 @@ img.lazy-image.loaded {
 
 .work-tabs .tabs-content .text p {
 	position: relative;
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: 300;
 	line-height: 1.7em;
 	letter-spacing: 2px;
@@ -7153,7 +7175,7 @@ img.lazy-image.loaded {
 	top: -1px;
 	color: var(--thm-base);
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 25px;
 }
 
 /***
