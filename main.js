@@ -235,7 +235,7 @@ function setTimerFromSeconds2(seconds){
   var minutesLeft = Math.floor((hoursLeft) - (hours*3600));
   var minutes     = Math.floor(minutesLeft/60);
   var remainingSeconds = seconds % 60;
-  //setTimer2(days,hours,minutes,remainingSeconds)
+  setTimer2(days,hours,minutes,remainingSeconds)
 }
 function setTimer2(days,hours,minutes,seconds){
   //console.log('settimer ',days,hours,minutes,seconds)
