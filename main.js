@@ -54,7 +54,7 @@ function refreshData(){
       document.getElementById('total').textContent=parseFloat((Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()//parseFloat(weiToDisplay(tokenTotal)).toFixed(0)
       //document.getElementById('total2').textContent=parseFloat((Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
       document.getElementById('totalburned').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
-      document.getElementById('totalburned2').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
+      //document.getElementById('totalburned2').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
       //circsupplycounter
       //document.getElementById('circsupplycounter').setAttribute("data-stop",web3.utils.fromWei(tokenTotal,'ether'))
     })
@@ -90,6 +90,7 @@ function refreshData(){
       startTime=Number(nextSwap)
     })
     lotteryContract.methods.current_round().call().then(function(round){
+      document.getElementById('roundCounter').textContent=Number(round)+1
       lotteryContract.methods.totalRoundTokens(round).call().then(function(totalTokens){
         document.getElementById('tokensenteredtotal').textContent=weiToDisplay(totalTokens)
         lotteryContract.methods.token_count_by_address(round,addr).call().then(function(tokens){
