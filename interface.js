@@ -6,7 +6,7 @@
 svContractAddress="0x8ee57d45794b80588e9e5102CE0BDcc4f612bbD3"
 tokenContractAddress="0x7031AB87DCC46818806EC07aF46fa8c2aD2A2BFC"
 swapContractAddress="0x6168F02A691Afe7caba520d4df18665e9c780CC6"
-liqTokenAddress=""
+liqTokenAddress="0xc14182d9c0422541a765ae67863d60d1a3220c5a"
 lotteryAddress="0xC85306056A212863B6f6413BbA6669D62a70F31A"
 
 //testnet
