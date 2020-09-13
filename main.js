@@ -4,7 +4,7 @@ var minbuy=1
 var maxbuy=1000
 var startTime=0
 var startTimeLottery=0
-var deployTime=1598224286//+7*24*60*60//1596996282//+7*24*60*60
+var deployTime=1600023755+60*50//1598224286//+7*24*60*60//1596996282//+7*24*60*60
 var lotteryWeekHasPassed=false
 
 function main(){
