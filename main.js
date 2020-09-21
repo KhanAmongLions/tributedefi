@@ -6,6 +6,7 @@ var startTime=0
 var startTimeLottery=0
 var deployTime=1600023755+60*50//1598224286//+7*24*60*60//1596996282//+7*24*60*60
 var lotteryWeekHasPassed=false
+var extraBurned=12280
 
 window.nextDrawing=0
 
@@ -53,9 +54,12 @@ function refreshData(){
     //   //document.getElementById('burnedcounter').setAttribute("data-stop",web3.utils.fromWei(tburned,'ether'))
     // })
     tokenContract.methods.totalSupply().call().then(function(tokenTotal){
-      document.getElementById('total').textContent=parseFloat((Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()//parseFloat(weiToDisplay(tokenTotal)).toFixed(0)
+      //extraBurned
+      var totalAmount=(Number(web3.utils.fromWei(tokenTotal,'ether')))-extraBurned
+      document.getElementById('total').textContent=parseFloat(totalAmount.toFixed(0)).toLocaleString()//parseFloat(weiToDisplay(tokenTotal)).toFixed(0)
       //document.getElementById('total2').textContent=parseFloat((Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
-      document.getElementById('totalburned').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
+      var burnedAmount=(500000-Number(web3.utils.fromWei(tokenTotal,'ether')))+extraBurned
+      document.getElementById('totalburned').textContent=parseFloat(burnedAmount.toFixed(0)).toLocaleString()
       //document.getElementById('totalburned2').textContent=parseFloat((500000-Number(web3.utils.fromWei(tokenTotal,'ether'))).toFixed(0)).toLocaleString()
       //circsupplycounter
       //document.getElementById('circsupplycounter').setAttribute("data-stop",web3.utils.fromWei(tokenTotal,'ether'))
