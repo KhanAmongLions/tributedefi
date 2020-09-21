@@ -287,6 +287,7 @@ function sell2(){
   }
 }
 function donate2(){
+  console.log('test donate2')
   if(DEBUG){console.log('sell2')}
   let tospend=document.getElementById('donateamount').value
   if(Number(tospend)>0){
